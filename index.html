@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyShibe Holdings | Leading Construction & Infrastructure</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-yellow: #FFC25F;
+            --secondary-coral: #F04E63;
+            --deep-black: #1A1A1B;
+            --off-white: #F4F4F4;
+            --pure-white: #ffffff;
+            --text-muted: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--deep-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: var(--pure-white);
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span { color: var(--primary-yellow); font-weight: 300; }
+        
+        .logo-mark {
+            width: 25px;
+            height: 25px;
+            background: var(--primary-yellow);
+            position: relative;
+        }
+
+        nav ul { display: flex; list-style: none; gap: 2.5rem; }
+        nav a { text-decoration: none; color: var(--deep-black); font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: var(--secondary-coral); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            color: var(--pure-white);
+            margin-top: 60px;
+        }
+
+        .hero-content { max-width: 700px; }
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero h1 span { color: var(--primary-yellow); }
+        .hero p { font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9; }
+
+        .btn {
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            display: inline-block;
+            border-radius: 4px;
+        }
+
+        .btn-primary { background: var(--secondary-coral); color: white; }
+        .btn-primary:hover { background: #d63d50; transform: translateY(-3px); }
+
+        /* --- Stats Bar --- */
+        .stats {
+            background: var(--deep-black);
+            padding: 4rem 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            text-align: center;
+            gap: 2rem;
+        }
+
+        .stat-card h2 { color: var(--primary-yellow); font-size: 3rem; margin-bottom: 0.5rem; }
+        .stat-card p { color: var(--pure-white); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+
+        /* --- Values Section --- */
+        .values { padding: 6rem 10%; text-align: center; }
+        .section-header { margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; position: relative; display: inline-block; }
+        .section-header h2::after { content: ''; width: 60px; height: 4px; background: var(--primary-yellow); position: absolute; bottom: -10px; left: 0; }
+
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+        .value-box { background: white; padding: 3rem 2rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .value-box i { font-size: 3rem; color: var(--secondary-coral); margin-bottom: 1.5rem; }
+        .value-box h3 { margin-bottom: 1rem; }
+
+        /* --- Portfolio --- */
+        .portfolio { padding: 6rem 10%; background: #eee; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .project { position: relative; height: 400px; border-radius: 12px; overflow: hidden; }
+        .project img { width: 100%; height: 100%; object-fit: cover; }
+        .project-info { 
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem; 
+            background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: white;
+        }
+        .project-tag { background: var(--primary-yellow); color: var(--deep-black); padding: 4px 12px; font-weight: bold; font-size: 0.7rem; border-radius: 4px; }
+
+        /* --- Contact --- */
+        .contact { padding: 6rem 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; background: var(--pure-white); }
+        .contact-details h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .contact-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .contact-item i { color: var(--secondary-coral); font-size: 1.2rem; }
+
+        form input, form select, form textarea {
+            width: 100%; padding: 15px; margin-bottom: 1.2rem; border: 2px solid #eee; border-radius: 4px; outline: none;
+        }
+        form input:focus { border-color: var(--primary-yellow); }
+
+        /* --- Footer --- */
+        footer { background: var(--deep-black); color: white; padding: 4rem 10%; text-align: center; }
+        .footer-logo { font-size: 1.5rem; margin-bottom: 1rem; display: block; }
+        .socials { margin: 2rem 0; display: flex; justify-content: center; gap: 1.5rem; }
+        .socials a { color: white; font-size: 1.5rem; transition: 0.3s; }
+        .socials a:hover { color: var(--primary-yellow); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .contact { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <div class="logo-mark"></div>
+            MyShibe <span>HOLDINGS</span>
+        </div>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#projects">PORTFOLIO</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Engineered for <span>Performance</span>. Built for Life.</h1>
+            <p>From large-scale industrial infrastructure to luxury residential developments, MyShibe Holdings delivers precision engineering and world-class construction management.</p>
+            <a href="#contact" class="btn btn-primary">Start Your Project</a>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <h2>428</h2>
+            <p>Projects Delivered</p>
+        </div>
+        <div class="stat-card">
+            <h2>0</h2>
+            <p>Safety Incidents</p>
+        </div>
+        <div class="stat-card">
+            <h2>12</h2>
+            <p>Global Awards</p>
+        </div>
+        <div class="stat-card">
+            <h2>25+</h2>
+            <p>Years in Industry</p>
+        </div>
+    </section>
+
+    <section class="values" id="about">
+        <div class="section-header">
+            <h2>Our Core Values</h2>
+            <p>The foundation of every structure we build.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-box">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Uncompromising Safety</h3>
+                <p>We maintain a "Zero-Harm" policy. Every site is managed with the strictest international safety protocols to protect our workforce and clients.</p>
+            </div>
+            <div class="value-box">
+                <i class="fas fa-gem"></i>
+                <h3>Quality Excellence</h3>
+                <p>We don't cut corners. From the grade of steel to the final coat of paint, MyShibe stands for premium quality that lasts generations.</p>
+            </div>
+            <div class="value-box">
+                <i class="fas fa-leaf"></i>
+                <h3>Sustainable Build</h3>
+                <p>Integrating green technology and sustainable materials to reduce the carbon footprint of modern infrastructure.</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section class="portfolio" id="projects">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+        </div>
+        <div class="portfolio-grid">
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1000" alt="Bridge Work">
+                <div class="project-info">
+                    <span class="project-tag">CIVIL ENGINEERING</span>
+                    <h3>The Grand Bridge Link</h3>
+                    <p>Infrastructure development across the East Basin.</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" alt="Skyscraper">
+                <div class="project-info">
+                    <span class="project-tag">COMMERCIAL</span>
+                    <h3>Apex Corporate Tower</h3>
+                    <p>45-story glass facade with smart climate control.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-details">
+            <h2>Let's build something <span style="color:var(--secondary-coral)">great</span> together.</h2>
+            <p>Our consultation team is ready to review your blueprints and provide a comprehensive project timeline and budget estimation.</p>
+            <div style="margin-top: 2rem;">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+1 (888) MY-SHIBE-01</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>bids@myshibeholdings.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>770 Construction Plaza, Suite 400, New York, NY</span>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form">
+            <form>
+                <div style="display: flex; gap: 1rem;">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <select required>
+                    <option value="" disabled selected>Project Type</option>
+                    <option>Infrastructure / Bridge</option>
+                    <option>Commercial / Office</option>
+                    <option>Industrial / Warehouse</option>
+                    <option>Residential Development</option>
+                </select>
+                <textarea rows="6" placeholder="Project Description & Estimated Budget"></textarea>
+                <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Proposal Request</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo footer-logo">MyShibe <span>HOLDINGS</span></div>
+        <p>Expertise. Integrity. Excellence.</p>
+        <div class="socials">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
+        </div>
+        <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2026 MyShibe Holdings. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
